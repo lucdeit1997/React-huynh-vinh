@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "old": "typicode"
+    },
+    {
+      "name": "22",
+      "old": "",
+      "id": 2
+    },
+    {
+      "name": "33",
+      "old": "",
+      "id": 3
+    },
+    {
+      "name": "hwqg",
+      "old": "",
+      "id": 4
+    },
+    {
+      "name": "v",
+      "old": "22",
+      "id": 5
+    },
+    {
+      "name": "dd",
+      "old": "1",
+      "id": 6
+    },
+    {
+      "name": "vi",
+      "old": "12",
+      "id": 7
+    },
+    {
+      "name": "canh",
+      "old": "123",
+      "id": 8
+    },
+    {
+      "name": "canh",
+      "old": "123",
+      "id": 9
+    },
+    {
+      "name": "vinh",
+      "old": "123",
+      "id": 10
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

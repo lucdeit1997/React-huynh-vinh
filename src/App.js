@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Product from './Product';
+import Student from './student';
+import ButtonTodos from './button'
+import Axios from 'axios';
+export default class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  state = { 
+    todos: [],
+  }
+
+  componentWillMount () {
+    fetch("http://localhost:3000/posts")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({ todos: result });
+        }
+      )
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Student todos={this.state.todos} />
+        <ButtonTodos onAdd={(name, old) => this._onAdd(name, old)} />
+      </div>
+    )
+  }
+
+  _onAdd = (name, old) => {
+    Axios.post('http://localhost:3000/posts', { name, old }).then(({ data }) => {
+      this.setState(preState => ({
+        todos: [ ...preState.todos, data ]
+      }))
+    });
+  }
 }
-
-export default App;
